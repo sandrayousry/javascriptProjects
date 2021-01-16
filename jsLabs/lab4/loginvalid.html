@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <style type="text/css">
+      	 </style>
+      </head>
+    <body>
+    	
+    	<form id="form" action="#clickable.html">
+    		Email<input id="Email" placeholder="Email"  required> <br>
+    		password<input id="password" type="password" placeholder="enter your password" id="password" required>
+    		<input type="submit" name="submit" value="submit">
+    	</form>
+    	<script type="text/javascript">
+        var form=document.getElementById("form")
+
+    		
+    		form.addEventListener("submit",function (event) {
+          event.preventDefault()
+          var Email = document.getElementById("Email").value
+        var password = document.getElementById("password").value
+        var epattern = /[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$/
+        var ppattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/
+
+
+         if(Email.match(epattern) && password.match(ppattern)){
+          document.write("welcom")
+          }
+
+           else if(!Email.match(epattern)){
+           document.write("invalid email ")
+           }
+
+        
+          else if(!password.match(ppattern)){
+            document.write("welcom")
+          
+           }
+
+           else
+            {
+            document.write("enter your email and password")  
+           }
+ 
+        })
+				
+
+
+				
+    				
+			 
+
+ </script>
+    	   
+    </body>
+</html>

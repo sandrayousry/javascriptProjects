@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+	</head>
+	<body>
+		<script type="text/javascript">
+			var n1=Number(prompt("enter first number"))
+			var exit = false;
+			while(!exit){
+			var o=prompt("enter operation")
+			var n2=Number(prompt("enter secound number"))
+			var res;
+			switch(o)
+			{
+				case "+":
+				(res =n1+n2);
+				 break;
+				 case "-":
+				(res =n1-n2);
+				 break;
+				 case "*":
+				(res =n1*n2);
+				 break;
+				 case "/":
+				(res =n1/n2);
+				 break;
+				 default:
+				 alert("wrong input");
+
+			}
+               alert(res)
+               n1=res
+               var ans=prompt("want to continoue")
+               if(ans=="no")
+               {
+
+               	exit=true;
+               
+               }
+			
+
+        }
+			
+		</script>
+	</body>
+</html>

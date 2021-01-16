@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var content = [{name:"x",phone:"111"},{name:"y",phone:"222"},{name:"z",phone:"333"}];
+			while(true){
+				var op=prompt("want to search s or add a");
+				
+				if(op=="s")
+				{
+					var search=prompt("enter name to search")
+					for(var i=0;i<content.length;i++)
+					{
+						if(content[i].name==search)
+						{
+							alert(content[i].name + content[i].phone);
+						}
+					}
+
+				}
+
+
+
+                if(op=="a")
+				{
+				   for(var j=0;j<content.length;j++)
+				   {
+				   	var v={};
+
+					 var addn=prompt("enter name to add");
+					 var addph=prompt("enter phone to add");
+					 v.name =addn;
+					 v.phone=addph;
+					 content.push(v);
+
+					}
+
+			
+			
+			}
+      var r=prompt("want to repeat ?")
+			if(r=="no"){
+				break;
+		}
+	}
+
+			
+	   </script>
+	</body>
+</html>

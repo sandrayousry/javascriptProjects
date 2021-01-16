@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <style type="text/css">
+         </style>
+      </head>
+    <body>
+      <div class="container">
+        <h1 id="timer"></h1>
+    	<select id="hour"></select>
+      <select id="min"></select>
+      <select id="sec"></select>
+      <select id="appm">
+      <option value="am">am</option>
+      <option value="pm">pm</option>
+      </select>
+      <div>
+      <button id="startstop"> Set Alarm</button>
+      
+       </div>
+      </div>
+
+    	<script type="text/javascript">
+        var timer= document.getElementById("timer");
+        var hour= document.getElementById("hour");
+        var min= document.getElementById("min");
+        var sec= document.getElementById("sec");
+        var appm= document.getElementById("appm");
+        var startstop= document.getElementById("startstop");
+
+        var currentTime;
+        var alarmElement;
+        var activeAlarm =false;
+        var sound = new Audio("alarm.mp3");
+
+
+         function showtime(){
+          var now = new Date();
+          currentTime=now.toLocaleTimeString();
+          timer.textContent=currentTime;
+          setTimeout(showtime,1000);
+        }
+        showtime()
+
+        function addminsec(id) {
+          var select=id
+          var min=59
+
+          for(var i=0;i<=min;i++){
+            select.options[select.options.length] = new Option(i <10 ? "0" +i :i)
+
+          }
+        }
+        addminsec(sec)
+        addminsec(min)
+
+
+
+        function addhour(id) {
+          var select=id
+          var min=12
+
+          for(var i=0;i<=min;i++){
+            select.options[select.options.length] = new Option(i <10 ? "0" +i :i)
+
+          }
+        }
+        addhour(hour)
+        // addminsec(sec)
+        // addminsec(min)
+
+
+        startstop.onclick=function(){
+          if(activeAlarm===false){
+            hour.disabled=true
+            min.disabled=true
+            sec.disabled=true
+            appm.disabled=true
+            alarmElement=hour.value + ":"+ min.value + ":" +sec.value + ":" +appm.value 
+            this.textContent ="claer Alarm";
+            activeAlarm=true;
+          }
+           else{
+          hour.disabled=false;
+          min.disabled=false;
+          sec.disabled=false;
+          appm.disabled=false;
+          sound.pause();
+          this.textContent= "set Alarm";
+          activeAlarm = false;
+        }
+
+        }
+
+
+      </script>
+    </body>
+</html>
